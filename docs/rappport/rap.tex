@@ -7,6 +7,11 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{url}
+\usepackage{array}
+\usepackage{tabularx}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 
 % Reduce excessive vertical gaps around floats (tables/figures).
 \setlength{\textfloatsep}{8pt plus 1pt minus 2pt}

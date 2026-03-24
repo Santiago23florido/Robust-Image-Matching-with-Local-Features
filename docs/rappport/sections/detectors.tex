@@ -512,8 +512,10 @@ The KAZE detector performs the following steps:
     \caption{ORB vs KAZE comparison}
     \label{tab:orb_vs_kaze}
     \begingroup
+    \footnotesize
+    \setlength{\tabcolsep}{3pt}
     \renewcommand{\arraystretch}{1.15}
-    \begin{tabular}{p{0.28\linewidth} p{0.30\linewidth} p{0.30\linewidth}}
+    \begin{tabularx}{\columnwidth}{@{}L{0.24\columnwidth}YY@{}}
         \hline
         \textbf{Aspect} & \textbf{ORB} & \textbf{KAZE} \\
         \hline
@@ -525,7 +527,7 @@ The KAZE detector performs the following steps:
         Scale & Depends on pyramid (\texttt{nlevels}, \texttt{scaleFactor}) & Intrinsic multiscale (nonlinear) \\
         Viewpoint (affine/projective) & Limited & Often behaves better under moderate changes \\
         \hline
-    \end{tabular}
+    \end{tabularx}
     \endgroup
 \end{table}
 
@@ -538,21 +540,23 @@ In OpenCV (\texttt{cv2.ORB\_create(...)}), the most important parameters and the
     \caption{Main ORB parameters in OpenCV and their practical effect.}
     \label{tab:orb_params}
     \begingroup
+    \footnotesize
+    \setlength{\tabcolsep}{3pt}
     \renewcommand{\arraystretch}{1.15}
-    \begin{tabular}{p{0.18\linewidth} p{0.34\linewidth} p{0.42\linewidth}}
+    \begin{tabularx}{\columnwidth}{@{}L{0.25\columnwidth}YY@{}}
         \hline
         \textbf{Parameter} & \textbf{What it controls} & \textbf{Practical effect (typically when increased)} \\
         \hline
         \texttt{nfeatures} & Maximum number of retained keypoints & More points (more coverage) and more runtime; may include weaker points \\
         \texttt{scaleFactor} & Scale factor between pyramid levels & Levels become farther apart (greater scale sampling); often faster but less precise in scale \\
         \texttt{nlevels} & Number of pyramid levels & Better scale coverage, higher computational cost \\
-        \texttt{fast} \texttt{Threshold} & Threshold $t$ in the FAST segment test & Fewer corners (stricter detection); often fewer false positives, but weak points can be lost \\
+        \texttt{fast}\allowbreak\texttt{Threshold} & Threshold $t$ in the FAST segment test & Fewer corners (stricter detection); often fewer false positives, but weak points can be lost \\
         \texttt{scoreType} & Corner ranking score (Harris vs FAST score) & Harris is usually more stable (slightly higher cost) than the pure FAST score \\
-        \texttt{edge} \texttt{Threshold} & Border margin where features are suppressed & Avoids keypoints too close to the border; can remove useful boundary points \\
+        \texttt{edge}\allowbreak\texttt{Threshold} & Border margin where features are suppressed & Avoids keypoints too close to the border; can remove useful boundary points \\
         \texttt{patchSize} & Patch size for orientation/descriptor & Larger patch: more context (potentially more robust), higher cost \\
         \texttt{WTA\_K} & Number of points per BRIEF test ($2$, $3$, or $4$) & Changes descriptor statistics/discriminability; requires the appropriate matching norm \\
         \hline
-    \end{tabular}
+    \end{tabularx}
     \endgroup
 \end{table}
 
@@ -562,8 +566,10 @@ In OpenCV (\texttt{cv2.ORB\_create(...)}), the most important parameters and the
     \caption{OpenCV default values for main ORB parameters.}
     \label{tab:orb_defaults}
     \begingroup
+    \footnotesize
+    \setlength{\tabcolsep}{3pt}
     \renewcommand{\arraystretch}{1.15}
-    \begin{tabular}{p{0.5\linewidth} p{0.50\linewidth}}
+    \begin{tabularx}{\columnwidth}{@{}L{0.42\columnwidth}Y@{}}
         \hline
         \textbf{Parameter} & \textbf{OpenCV default value} \\
         \hline
@@ -576,7 +582,7 @@ In OpenCV (\texttt{cv2.ORB\_create(...)}), the most important parameters and the
         \texttt{patchSize} & \texttt{31} \\
         \texttt{WTA\_K} & \texttt{2} \\
         \hline
-    \end{tabular}
+    \end{tabularx}
     \endgroup
 \end{table}
 
@@ -605,18 +611,20 @@ practical effect are summarized in Table~\ref{tab:kaze_params}.
     \caption{Main KAZE parameters in OpenCV and their practical effect.}
     \label{tab:kaze_params}
     \begingroup
+    \footnotesize
+    \setlength{\tabcolsep}{3pt}
     \renewcommand{\arraystretch}{1.15}
-    \begin{tabular}{p{0.16\linewidth} p{0.34\linewidth} p{0.37\linewidth}}
+    \begin{tabularx}{\columnwidth}{@{}L{0.28\columnwidth}YY@{}}
         \hline
         \textbf{Parameter} & \textbf{What it controls} & \textbf{Practical effect (typically when increased / enabled)} \\
         \hline
         \texttt{threshold} & Detector response threshold & Stricter detection: fewer keypoints, but stronger and often more stable ones \\
         \texttt{nOctaves} & Scale range (octaves) & Wider scale range, higher computational cost \\
-        \texttt{nOctave} \texttt{Layers} & Sub-levels per octave & Finer scale sampling, higher computational cost \\
+        \texttt{nOctave}\allowbreak\texttt{Layers} & Sub-levels per octave & Finer scale sampling, higher computational cost \\
         \texttt{upright} & Whether orientation is computed & \texttt{True}: faster but loses rotation invariance; \texttt{False}: more robust to rotation \\
-        \texttt{diffu} \texttt{-sivity} & Diffusion type (edge-preserving) & Changes the smoothing/edge-preservation tradeoff, affecting keypoint distribution and stability \\
+        \texttt{diffusivity} & Diffusion type (edge-preserving) & Changes the smoothing/edge-preservation tradeoff, affecting keypoint distribution and stability \\
         \hline
-    \end{tabular}
+    \end{tabularx}
     \endgroup
 \end{table}
 
@@ -627,8 +635,10 @@ practical effect are summarized in Table~\ref{tab:kaze_params}.
     \caption{OpenCV default values for main KAZE parameters.}
     \label{tab:kaze_defaults}
     \begingroup
+    \footnotesize
+    \setlength{\tabcolsep}{3pt}
     \renewcommand{\arraystretch}{1.15}
-    \begin{tabular}{p{0.5\linewidth} p{0.4\linewidth}}
+    \begin{tabularx}{\columnwidth}{@{}L{0.44\columnwidth}Y@{}}
         \hline
         \textbf{Parameter} & \textbf{OpenCV default value} \\
         \hline
@@ -638,7 +648,7 @@ practical effect are summarized in Table~\ref{tab:kaze_params}.
         \texttt{nOctaveLayers} & \texttt{4} \\
         \texttt{diffusivity} & \texttt{2} \\
         \hline
-    \end{tabular}
+    \end{tabularx}
     \endgroup
 \end{table}
 
